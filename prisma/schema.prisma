@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model inmetcogoa002goiania {
+  id Int @id @default(autoincrement())
+  Data DateTime?
+  HoraUTC String?
+  PRECIPITACAO_TOTAL_HORARIO_mm Float?
+  PRESSAO_ATMOSFERICA_AO_NIVEL_DA_ESTACAO_HORARIA_mB Float?
+  PRESSAO_ATMOSFERICA_MAX_NA_HORA_ANT_AUT_mB Float?
+  PRESSAO_ATMOSFERICA_MIN_NA_HORA_ANT_AUT_mB Float?
+  RADIACAO_GLOBAL_Kj_m Float?
+  TEMPERATURA_DO_AR_BULBO_SECO_HORARIA_C Float?
+  TEMPERATURA_DO_PONTO_DE_ORVALHO_C Float?
+  TEMPERATURA_MAXIMA_NA_HORA_ANT_AUT_C Float?
+  TEMPERATURA_MINIMA_NA_HORA_ANT_AUT_C Float?
+  TEMPERATURA_ORVALHO_MAX_NA_HORA_ANT_AUT_C Float?
+  TEMPERATURA_ORVALHO_MIN_NA_HORA_ANT_AUT_C Float?
+  UMIDADE_REL_MAX_NA_HORA_ANT_AUT_percent Int?
+  UMIDADE_REL_MIN_NA_HORA_ANT_AUT_percent Int?
+  UMIDADE_RELATIVA_DO_AR_HORARIA_percent Int?
+  VENTO_DIRECAO_HORARIA_gr Int?
+  VENTO_RAJADA_MAXIMA_m_s Float?
+  VENTO_VELOCIDADE_HORARIA_m_s Float?
+}
