@@ -15,7 +15,7 @@ async function viewData() {
           gte: startDate,
           lte: endDate,
         },
-        // Adicione mais filtros se necessário
+        
       },
       select: {
         UC: true,
