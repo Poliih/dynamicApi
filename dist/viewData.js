@@ -14,7 +14,7 @@ const prisma = new client_1.PrismaClient();
 function viewData() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = yield prisma.unidadeConsumidora.findMany({
+            const data = yield prisma.unidades_consumidoras.findMany({
                 where: {
                 // Adicione filtros ou condições aqui se necessário
                 },

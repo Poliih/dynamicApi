@@ -4,9 +4,18 @@ const prisma = new PrismaClient();
 
 async function viewData() {
   try {
-    const data = await prisma.unidadeConsumidora.findMany({
+    // Definindo o intervalo de datas para o filtro
+    const startDate = new Date('2023-01-01'); // Substitua com a data de início desejada
+    const endDate = new Date('2023-02-31');   // Substitua com a data de fim desejada
+
+    // Buscando dados da tabela `unidades_consumidoras`
+    const data = await prisma.unidades_consumidoras.findMany({
       where: {
-        // Adicione filtros ou condições aqui se necessário
+        mes_referencia: {
+          gte: startDate,
+          lte: endDate,
+        },
+        // Adicione mais filtros se necessário
       },
       select: {
         UC: true,
@@ -19,6 +28,7 @@ async function viewData() {
       },
     });
 
+    // Exibindo os dados obtidos
     console.log('Data:', data);
   } catch (error) {
     console.error('Error fetching data:', error);
