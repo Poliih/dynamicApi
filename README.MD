@@ -1,29 +1,24 @@
 # Dynamic API
 
+Esta API RESTful dinâmica permite consultar dados para diferentes tipos de gráficos.
+
 ## Endpoints
 
-### GET /data/:chartType
+### `GET /api/data/:chartType`
 
-Retorna os dados formatados para o tipo de gráfico solicitado.
+- **Parâmetros de URL:**
+  - `chartType`: Tipo de gráfico (por exemplo, "pie", "line").
+- **Parâmetros de Query:**
+  - `startDate`: Data de início no formato `YYYY-MM-DD`.
+  - `endDate`: Data de término no formato `YYYY-MM-DD`.
 
-#### Parâmetros
-- `chartType`: Tipo de gráfico (por exemplo, `pie`, `line`).
-- `startDate`: Data de início para filtrar os dados.
-- `endDate`: Data de fim para filtrar os dados.
+- **Respostas:**
+  - **200 OK**: Dados formatados para o tipo de gráfico solicitado.
+  - **400 Bad Request**: Se `startDate` ou `endDate` estiver faltando ou se o `chartType` for inválido.
+  - **500 Internal Server Error**: Se ocorrer um erro no servidor.
 
-#### Respostas
-- `200 OK`: Dados formatados para o gráfico solicitado.
-- `400 Bad Request`: Falta de parâmetros obrigatórios.
-- `500 Internal Server Error`: Erro no servidor.
+## Instalação
 
-### Como Executar
-
-1. Clone o repositório.
-2. Instale as dependências: `npm install`
-3. Configure o banco de dados no arquivo `.env`.
-4. Execute as migrações do Prisma: `npx prisma migrate dev`
-5. Inicie o servidor: `npm run dev`
-
-### Como Testar
-
-Execute os testes: `npm test`
+1. Clone o repositório:
+   ```bash
+   git clone <repo-url>
