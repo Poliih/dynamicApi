@@ -9,17 +9,29 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// viewData.ts
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
 function viewData() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const data = yield prisma.inmetCoGoA002Goiania.findMany();
-            console.log(data);
+            const data = yield prisma.unidadeConsumidora.findMany({
+                where: {
+                // Adicione filtros ou condições aqui se necessário
+                },
+                select: {
+                    UC: true,
+                    mes_referencia: true,
+                    consumo: true,
+                    injetado: true,
+                    saldo: true,
+                    valor_total: true,
+                    valor_economizado: true,
+                },
+            });
+            console.log('Data:', data);
         }
         catch (error) {
-            console.error("Error fetching data:", error);
+            console.error('Error fetching data:', error);
         }
         finally {
             yield prisma.$disconnect();
